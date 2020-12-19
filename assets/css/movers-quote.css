@@ -1,0 +1,56 @@
+.select2-container .select2-selection--single {
+  height: unset !important;
+}
+
+.free-quote-form .select2-container {
+  width: 100% !important;
+}
+
+.free-quote-form
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 3em !important;
+  padding: 0;
+  padding-left: 12px;
+  color: rgb(124, 124, 124);
+}
+
+.free-quote-form .error:not(.form-control) {
+  display: none;
+  width: 100%;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.free-quote-form
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.free-quote-form .form-control {
+  border-left: none !important;
+  border-radius: 0;
+  height: 100%;
+}
+
+.free-quote-form .select2-selection {
+  border-radius: 0 !important;
+  border-color: #ddd !important;
+  height: 3em !important;
+}
+
+.free-quote-form .btn-primary {
+  border-radius: 0%;
+  padding: 1em 2em;
+}
+
+.free-quote-form .input-group {
+  height: 3em;
+  margin-bottom: 2em;
+}
