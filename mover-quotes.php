@@ -5,7 +5,7 @@
 * Plugin URI: https://github.com/iJovanGG/MoversFreeQuoteV2
 * GitHub Plugin URI: https://github.com/afragen/github-updater
 * Description: TBD
-* Version: 1.0.0
+* Version: 1.0.1
 * Author: Jovan Mladenovic
 **/
 function movers_admin_menu_option(){
