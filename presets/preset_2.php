@@ -69,8 +69,8 @@
             
             <div class="col-sm-6">
                 <div class="input-group">
-                    <input data-provide="datepicker" type="text" class="form-control datepicker" name="date_of_move" id="date_of_move" placeholder="Date Of Move*" required>
-                    <div class="invalid-feedback" for="date_of_move"></div>
+                    <input data-provide="datepicker" type="text" class="form-control datepicker" name="move_date" id="move_date" placeholder="Date Of Move*" required>
+                    <div class="invalid-feedback" for="move_date"></div>
                 </div>
             </div>
 

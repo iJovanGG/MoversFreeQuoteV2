@@ -24,7 +24,7 @@ $(document).ready(function(){
         showMaskOnHover: false,
     });
 
-    $('#date_of_move').datepicker({
+    $('#move_date').datepicker({
         autoclose: true
     });
 
@@ -42,7 +42,7 @@ $(document).ready(function(){
             destination_zip: "Enter destination ZIP code",
             email: "Enter a valid email",
             phone: "Enter your phone number",
-            date_of_move: "Enter moving date"
+            move_date: "Enter moving date"
         } ,
         errorPlacement: function(error, element) {
             error.appendTo( element.parent() );
@@ -67,8 +67,6 @@ $(document).ready(function(){
                 $.each(errors, function (key, value) {
                     $('.invalid-feedback[for="'+key+'"]').html(value).show();
                 });
-
-                $("#alert-bubble p").html(error_message).show();
             })
     })
 })

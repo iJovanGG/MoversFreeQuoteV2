@@ -96,8 +96,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                     </div>
-                    <input type="text" class="form-control datepicker" name="date_of_move" id="date_of_move" placeholder="Date Of Move*" required>
-                    <div class="invalid-feedback" for="date_of_move"></div>
+                    <input type="text" class="form-control datepicker" name="move_date" id="move_date" placeholder="Date Of Move*" required>
+                    <div class="invalid-feedback" for="move_date"></div>
                 </div>
             </div>
 
