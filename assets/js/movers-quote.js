@@ -45,10 +45,35 @@ $(document).ready(function(){
             move_date: "Enter moving date"
         } ,
         errorPlacement: function(error, element) {
-            error.appendTo( element.parent() );
+            element.parent().find('.invalid-feedback').text(error.text()).show();
+        },
+        onfocusout: function(element){
+            if($(element).valid()){
+                $(element).parent().find('.invalid-feedback').hide();
+            }
         }
 
     });
+
+    $('#nextFormStep').click(function(e){
+        e.preventDefault();
+        var isValid = true;
+        console.log(form.find('.step1 input'));
+        form.find('.step1 input').each(function(element){
+            if(!$(this).valid()){
+                isValid = false;
+            }
+        })
+        if(!isValid)
+            return;
+
+        form.find('.steps-wrapper').addClass('next-step');
+    })
+
+    $('#goBackFormStep').click(function(e){
+        e.preventDefault();
+        form.find('.steps-wrapper').removeClass('next-step');
+    })
 
     form.on('submit', function(e){
         e.preventDefault();
@@ -65,6 +90,9 @@ $(document).ready(function(){
                 var errors = errors_obj.error;
 
                 $.each(errors, function (key, value) {
+                    if(key == 'first_name' || key == 'source_zip' || key == 'destination_zip'){
+                        form.find('.steps-wrapper').removeClass('next-step');
+                    }
                     $('.invalid-feedback[for="'+key+'"]').html(value).show();
                 });
             })

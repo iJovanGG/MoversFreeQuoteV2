@@ -36,6 +36,14 @@
                         <th scope="row"><label for="send_bitton_text">Send button text</label></th>
                         <td><input type="text" name="send_bitton_text" id="send_bitton_text" maxlength="255" value="<?php echo $form_options['send_bitton_text'] ?>"></td>
                     </tr>
+                    <tr>
+                        <th scope="row"><label for="form_border_radius">Form border radius</label></th>
+                        <td><input type="text" name="form_border_radius" id="form_border_radius" maxlength="255" value="<?php echo $form_options['form_border_radius'] ?>"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="button_border_radius">Send button text</label></th>
+                        <td><input type="text" name="button_border_radius" id="button_border_radius" maxlength="255" value="<?php echo $form_options['button_border_radius'] ?>"></td>
+                    </tr>
                     <style>
                         .form-table td{
                             vertical-align: baseline;
@@ -68,6 +76,9 @@
                             <img src="<?php echo plugin_dir_url( __FILE__ ) ?>presets/img/4.jpg">
                         </td>
                         <td>
+                        <input type="radio" name="form_preset" id="form_preset" value="4" <?php echo $form_options['form_preset'] == 4 ? "checked" : ""  ?>>
+                            <label>Fifth</label>
+                            <img src="<?php echo plugin_dir_url( __FILE__ ) ?>presets/img/5.jpg">
                         </td>
                     </tr>
                 </tbody>

@@ -5,7 +5,7 @@
 * Plugin URI: https://github.com/iJovanGG/MoversFreeQuoteV2
 * GitHub Plugin URI: https://github.com/afragen/github-updater
 * Description: TBD
-* Version: 1.0.2
+* Version: 1.1.0
 * Author: Jovan Mladenovic
 **/
 function movers_admin_menu_option(){
@@ -30,54 +30,73 @@ function movers_free_quote_page(){
             'primary_color' => $_POST['primary_color'],
             'secondary_color' => $_POST['secondary_color'],
             'form_preset' => $_POST['form_preset'],
-            'send_bitton_text' => $_POST['send_bitton_text']
+            'send_bitton_text' => $_POST['send_bitton_text'],
+            'form_border_radius' => $_POST['form_border_radius'],
+            'button_border_radius' => $_POST['button_border_radius'],
         );
-
-        $wpdb->update($table_name,$post_data, array( "id" => 1 ));
+        update_option('movers_quote_options', $post_data);
+        //$wpdb->update($table_name,$post_data, array( "id" => 1 ));
     }
 
-    $form_options = (array) $wpdb->get_results( "SELECT * FROM $table_name WHERE id = 1" )[0];
-    
+    //$form_options = (array) $wpdb->get_results( "SELECT * FROM $table_name WHERE id = 1" )[0];
+    $form_options = get_option('movers_quote_options');
+    if($form_options == false){
+        $form_options = array(
+            'two_step_form' => (isset($_POST['two_step_form'])? '1' : '0'),
+            'two_step_form_only_mobile' => (isset($_POST['two_step_form_only_mobile'])? '1' : '0'),
+            'redirect_url' => '',
+            'company_id' => '',
+            'form_header_text' => '',
+            'primary_color' => '',
+            'secondary_color' => '',
+            'form_preset' => '',
+            'send_bitton_text' => '',
+            'form_border_radius' => '',
+            'button_border_radius' => '',
+        );
+    }
 
     include 'movers-admin-panel.php';
 }
 
 function movers_form_install(){
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'movers_form_v2';
+    // global $wpdb;
+    // $table_name = $wpdb->prefix . 'movers_form_v2';
 
-    $charset_collate = $wpdb->get_charset_collate();
-    $sql = "CREATE TABLE $table_name (
-                id mediumint(9) NOT NULL AUTO_INCREMENT,
-                two_step_form BOOLEAN DEFAULT FALSE,
-                two_step_form_only_mobile BOOLEAN DEFAULT FALSE,
-                redirect_url VARCHAR(256) DEFAULT '#',
-                company_id VARCHAR(256) DEFAULT '#',
-                form_header_text VARCHAR(255) DEFAULT NULL,
-                send_bitton_text VARCHAR(50),
-                primary_color VARCHAR(50),
-                secondary_color VARCHAR(50),
-                form_preset tinyint(5) DEFAULT 0,
-                PRIMARY KEY  (id)
-            ) $charset_collate;";
+    // $charset_collate = $wpdb->get_charset_collate();
+    // $sql = "CREATE TABLE $table_name (
+    //             id mediumint(9) NOT NULL AUTO_INCREMENT,
+    //             two_step_form BOOLEAN DEFAULT FALSE,
+    //             two_step_form_only_mobile BOOLEAN DEFAULT FALSE,
+    //             redirect_url VARCHAR(256) DEFAULT '#',
+    //             company_id VARCHAR(256) DEFAULT '#',
+    //             form_header_text VARCHAR(255) DEFAULT NULL,
+    //             send_bitton_text VARCHAR(50),
+    //             primary_color VARCHAR(50),
+    //             secondary_color VARCHAR(50),
+    //             form_preset tinyint(5) DEFAULT 0,
+    //             button_border_radius tinyint(5) DEFAULT NULL,
+    //             form_border_radius tinyint(5) DEFAULT NULL,
+    //             PRIMARY KEY  (id)
+    //         ) $charset_collate;";
 
-    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-    dbDelta( $sql );
+    // require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+    // dbDelta( $sql );
 
-    add_option( 'movers_form_v2_db_version', '1.0' );
+    // add_option( 'movers_form_v2_db_version', '1.0' );
 
-    $wpdb->insert(
-        $table_name,
-        array('send_bitton_text'=> 'Get a free quote')
-    );
+    // $wpdb->insert(
+    //     $table_name,
+    //     array('send_bitton_text'=> 'Get a free quote')
+    // );
 }
 
 register_activation_hook( __FILE__, 'movers_form_install' );
 
 function generate_free_quote_form() {
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'movers_form_v2';
-    $form_options = (array) $wpdb->get_results( "SELECT * FROM $table_name WHERE id = 1" )[0];
+    $form_options = get_option('movers_quote_options');
+    if($form_options == false)
+        return 'free quote form options not set.';
 
     ob_start(); // start a buffer
     switch($form_options['form_preset']){
@@ -92,6 +111,9 @@ function generate_free_quote_form() {
             break;
         case 3:
             include 'presets/preset_3.php';
+            break;
+        case 4:
+            include 'presets/preset_4.php';
             break;
         default:
             include 'presets/preset_1.php';

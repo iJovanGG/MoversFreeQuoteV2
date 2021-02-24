@@ -30,6 +30,17 @@
     .free-quote-form .select2-container{
         flex: 1;
     }
+
+    
+    <?php
+        if($form_options['form_border_radius'] != '' && $form_options['form_border_radius'] != null){
+            echo '.free-quote-form{border-radius: ' . $form_options['form_border_radius'] . 'px !important}';
+        }
+
+        if($form_options['button_border_radius'] != '' && $form_options['button_border_radius'] != null){
+            echo '.free-quote-form .btn-primary {border-radius: ' . $form_options['button_border_radius'] . 'px !important}';
+        }
+    ?>
 </style>
 
 <div id="free-quote" class="free-quote-form">
