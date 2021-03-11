@@ -41,7 +41,7 @@
                         <td><input type="text" name="form_border_radius" id="form_border_radius" maxlength="255" value="<?php echo $form_options['form_border_radius'] ?>"></td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="button_border_radius">Send button text</label></th>
+                        <th scope="row"><label for="button_border_radius">Send button border radius</label></th>
                         <td><input type="text" name="button_border_radius" id="button_border_radius" maxlength="255" value="<?php echo $form_options['button_border_radius'] ?>"></td>
                     </tr>
                     <style>

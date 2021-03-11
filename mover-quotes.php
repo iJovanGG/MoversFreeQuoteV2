@@ -4,8 +4,8 @@
 * Plugin Name: Mover Quotes
 * Plugin URI: https://github.com/iJovanGG/MoversFreeQuoteV2
 * GitHub Plugin URI: https://github.com/afragen/github-updater
-* Description: TBD
-* Version: 1.1.0
+* Description: Create forms for moving services easy
+* Version: 1.1.1
 * Author: Jovan Mladenovic
 **/
 function movers_admin_menu_option(){
@@ -60,35 +60,7 @@ function movers_free_quote_page(){
 }
 
 function movers_form_install(){
-    // global $wpdb;
-    // $table_name = $wpdb->prefix . 'movers_form_v2';
-
-    // $charset_collate = $wpdb->get_charset_collate();
-    // $sql = "CREATE TABLE $table_name (
-    //             id mediumint(9) NOT NULL AUTO_INCREMENT,
-    //             two_step_form BOOLEAN DEFAULT FALSE,
-    //             two_step_form_only_mobile BOOLEAN DEFAULT FALSE,
-    //             redirect_url VARCHAR(256) DEFAULT '#',
-    //             company_id VARCHAR(256) DEFAULT '#',
-    //             form_header_text VARCHAR(255) DEFAULT NULL,
-    //             send_bitton_text VARCHAR(50),
-    //             primary_color VARCHAR(50),
-    //             secondary_color VARCHAR(50),
-    //             form_preset tinyint(5) DEFAULT 0,
-    //             button_border_radius tinyint(5) DEFAULT NULL,
-    //             form_border_radius tinyint(5) DEFAULT NULL,
-    //             PRIMARY KEY  (id)
-    //         ) $charset_collate;";
-
-    // require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-    // dbDelta( $sql );
-
-    // add_option( 'movers_form_v2_db_version', '1.0' );
-
-    // $wpdb->insert(
-    //     $table_name,
-    //     array('send_bitton_text'=> 'Get a free quote')
-    // );
+    
 }
 
 register_activation_hook( __FILE__, 'movers_form_install' );

@@ -4,7 +4,7 @@ $.validator.addMethod("valueNotEquals", function(value, element, arg){
     return arg !== value;
    }, "Value must not equal arg.");
 
-$(document).ready(function(){
+$(document).ready(function($){
     $("#move_size_id").select2();
 
     $("#phone").inputmask({
