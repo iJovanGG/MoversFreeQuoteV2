@@ -5,7 +5,7 @@
 * Plugin URI: https://github.com/iJovanGG/MoversFreeQuoteV2
 * GitHub Plugin URI: https://github.com/afragen/github-updater
 * Description: Create forms for moving services easy
-* Version: 1.1.1
+* Version: 1.1.2
 * Author: Jovan Mladenovic
 **/
 function movers_admin_menu_option(){
@@ -60,7 +60,7 @@ function movers_free_quote_page(){
 }
 
 function movers_form_install(){
-    
+
 }
 
 register_activation_hook( __FILE__, 'movers_form_install' );
