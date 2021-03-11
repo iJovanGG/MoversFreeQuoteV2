@@ -3,10 +3,12 @@
 /**
 * Plugin Name: Mover Quotes
 * Plugin URI: https://github.com/iJovanGG/MoversFreeQuoteV2
-* GitHub Plugin URI: https://github.com/afragen/github-updater
+* GitHub Plugin URI: https://github.com/iJovanGG/MoversFreeQuoteV2
 * Description: Create forms for moving services easy
-* Version: 1.1.2
+* Version: 1.1.3
 * Author: Jovan Mladenovic
+* License:           GNU General Public License v2
+* License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 **/
 function movers_admin_menu_option(){
     add_menu_page('movers free quote', 'Movers Forms', 'manage_options', 'movers-forms', 'movers_free_quote_page', '', 200);
